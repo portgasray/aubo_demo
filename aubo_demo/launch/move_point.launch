@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="move_point" pkg="aubo_demo" type="move_point" respawn="false" output="screen">
+  </node>
+
+</launch>

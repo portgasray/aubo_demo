@@ -1,0 +1,8 @@
+#Define the goal
+float32[] object_position
+---
+#Define the result
+bool is_finshed
+---
+#Define a feedback message
+uint32 move_time

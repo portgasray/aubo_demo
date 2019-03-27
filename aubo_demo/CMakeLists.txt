@@ -74,17 +74,17 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate actions in the 'action' folder
-# add_action_files(
-#   FILES
-#   Action1.action
-#   Action2.action
-# )
+add_action_files(
+   DIRECTORY action
+   FILES PublishPosition.action
+)
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+generate_messages(
+   DEPENDENCIES
+   std_msgs
+   actionlib_msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -165,6 +165,18 @@ include_directories(
 
 add_executable(move_group_interface_tutorial src/move_group_interface_tutorial.cpp)
 target_link_libraries(move_group_interface_tutorial ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
+add_executable(move_pose src/move_pose.cpp)
+target_link_libraries(move_pose ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
+add_executable(move_point src/move_point.cpp)
+target_link_libraries(move_point ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
+add_executable(position_pub src/position_pub.cpp)
+target_link_libraries(position_pub ${catkin_LIBRARIES} ${Boost_LIBRARIES})
+
+#add_executable(aubo_pick_place src/aubo_pick_place.cpp)
+#target_link_libraries(aubo_pick_place ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 #install(TARGETS move_group_interface_tutorial DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 #############
 ## Install ##
